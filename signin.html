@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Monkey SmartTrap</title>
+    <link rel="stylesheet" href="signin.css">
+</head>
+<body>
+
+<!-- Header -->
+<header class="navbar">
+    <div class="logo">
+        <img src="images/logo.jpg" alt="Monkey SmartTrap Logo" class="logo-img">
+        <div class="logo-text">
+            <h1>Monkey SmartTrap</h1>
+            <p>Intelligent Trap Detection System</p>
+        </div>
+    </div>
+    <a href="homepage.html" class="btn-home">Home</a>
+</header>
+
+<!-- Sign In Container -->
+<main class="signin-container">
+    <div class="signin-box">
+        <h2>Sign In</h2>
+        <form class="signin-form" id="signinForm">
+            <div class="form-group">
+                <label for="email">Email*</label>
+                <input type="email" id="email" placeholder="Email address" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="password">Password*</label>
+                <input type="password" id="password" placeholder="Password" required>
+            </div>
+
+            <a href="#" class="forgot-link" id="forgotPasswordLink">Forgot Password?</a>
+            
+            <button type="submit" class="btn-signin">Log in</button>
+        </form>
+    </div>
+</main>
+
+<!-- Forgot Password Modal -->
+<div class="modal" id="forgotPasswordModal">
+    <div class="modal-content">
+        <span class="close-modal" id="closeForgotPassword">&times;</span>
+        <h2>Reset Password</h2>
+        <p class="modal-description">Enter your email address and we'll send you a link to reset your password.</p>
+        <form id="forgotPasswordForm">
+            <div class="form-group">
+                <label for="resetEmail">Email Address</label>
+                <input type="email" id="resetEmail" placeholder="Enter your email" required>
+            </div>
+            <button type="submit" class="btn-modal">Send Reset Link</button>
+        </form>
+    </div>
+</div>
+
+<script src="signin.js"></script>
+</body>
+</html>

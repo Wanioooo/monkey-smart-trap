@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Monitor - Monkey SmartTrap</title>
+    <link rel="stylesheet" href="livemonitor.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="images/logo.jpg" alt="Monkey SmartTrap Logo" class="logo-img">
+                </div>
+                <div class="title-section">
+                    <h1>Monkey SmartTrap</h1>
+                    <p>Intelligent Trap Detection System</p>
+                </div>
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn notification-btn" id="notificationBtn">
+                    🔔
+                    <span class="notification-badge">3</span>
+                </button>
+                <button class="icon-btn profile-btn" id="profileBtn">👤</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Notification Dropdown -->
+    <div class="notification-dropdown" id="notificationDropdown">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="mark-read">Mark all as read</button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon">🚨</div>
+                <div class="notification-content">
+                    <p><strong>Monkey detected in Cage A</strong></p>
+                    <span class="notification-time">2 minutes ago</span>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <div class="notification-icon">✅</div>
+                <div class="notification-content">
+                    <p><strong>Alert sent successfully</strong></p>
+                    <span class="notification-time">5 minutes ago</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">⚙️</div>
+                <div class="notification-content">
+                    <p><strong>System maintenance completed</strong></p>
+                    <span class="notification-time">1 hour ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Dropdown -->
+    <div class="profile-dropdown" id="profileDropdown">
+        <div class="profile-header">
+            <div class="profile-avatar">👤</div>
+            <div class="profile-info">
+                <h3>Admin User</h3>
+                <p>admin@smarttrap.com</p>
+            </div>
+        </div>
+        <div class="profile-menu">
+            <a href="#" class="profile-menu-item">👤 My Profile</a>
+            <a href="#" class="profile-menu-item">⚙️ Account Settings</a>
+            <a href="#" class="profile-menu-item">🔔 Notification Preferences</a>
+            <a href="#" class="profile-menu-item">❓ Help & Support</a>
+            <a href="#" class="profile-menu-item logout">🚪 Log Out</a>
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-item">Dashboard</a>
+            <a href="livemonitor.html" class="nav-item active">Live monitor</a>
+            <a href="detectionlog.html" class="nav-item">Detection Logs</a>
+            <a href="settings.html" class="nav-item">Settings</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Back Button and Title -->
+        <div class="page-header">
+            <a href="dashboard.html" class="back-btn">← </a>
+            <h1 class="page-title">Live Monitor View</h1>
+            <div class="cage-selector">
+                <label for="cageSelect">Select Cage:</label>
+                <select id="cageSelect" class="cage-select">
+                    <option value="A">Cage A - Kuala Krai</option>
+                    <option value="B">Cage B - Gua Musang</option>
+                    <option value="C">Cage C - Jeli</option>
+                    <option value="D">Cage D - Tanah Merah</option>
+                    <option value="E">Cage E - Machang</option>
+                    <option value="F">Cage F - Pasir Mas</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="monitor-layout">
+            <!-- Video Feed -->
+            <div class="video-container">
+                <video id="cctv-feed" autoplay muted loop playsinline>
+                    <source src="images/monkeyTrap.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-overlay">
+                    <div class="cctv-label">CCTV feed</div>
+                    <div class="detection-box" id="detectionBox">
+                        <div class="detection-label">DETECTION</div>
+                        <div class="alert-message">ALERT - MONKEY ENTERING TRAP</div>
+                    </div>
+                    <button class="fullscreen-btn" id="fullscreenBtn">⛶</button>
+                </div>
+            </div>
+
+            <!-- Side Panel -->
+            <div class="side-panel">
+                <!-- Trap Details -->
+                <div class="info-card">
+                    <h2 class="card-title">Trap Details</h2>
+                    <div class="info-content">
+                        <p class="cage-info"><strong id="currentCageName">Cage A</strong> <span id="currentCageLocation">[Kuala Krai]</span></p>
+                        <p class="status-info">System Status : <span class="status-online">Online</span></p>
+                        <p class="count-info">Today's Counts : <span class="count-value" id="todayCount">1</span></p>
+                    </div>
+                </div>
+
+                <!-- Recent Detections -->
+                <div class="info-card">
+                    <h2 class="card-title">Recent Detections</h2>
+                    <div class="detections-list" id="detectionsList">
+                        <div class="detection-item">
+                            <span class="detection-time">10:23 AM</span>
+                            <span class="detection-text">Monkey approaching</span>
+                            <a href="#" class="view-link" onclick="viewDetectionImage('10:23 AM', 'Monkey approaching'); return false;">[View Image]</a>
+                        </div>
+                        <div class="detection-item">
+                            <span class="detection-time">10:30 AM</span>
+                            <span class="detection-text">Monkey inside cage</span>
+                            <a href="#" class="view-link" onclick="viewDetectionImage('10:30 AM', 'Monkey inside cage'); return false;">[View Image]</a>
+                        </div>
+                        <div class="detection-item">
+                            <span class="detection-time">10:45 AM</span>
+                            <span class="detection-text">Monkey passing by</span>
+                            <a href="#" class="view-link" onclick="viewDetectionImage('10:45 AM', 'Monkey passing by'); return false;">[View Image]</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alert Status -->
+                <div class="info-card">
+                    <h2 class="card-title">Recent Alert Status</h2>
+                    <div class="alert-status">
+                        <div class="alert-icon">✅</div>
+                        <p class="alert-text">Last Alert Sent : <span id="lastAlert">10.45 AM</span> via Telegram & Email</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Image View Modal -->
+    <div class="detection-image-modal" id="detectionImageModal">
+        <span class="close-detection-modal" id="closeDetectionModal">&times;</span>
+        <div class="detection-modal-content">
+            <h3>Detection Snapshot</h3>
+            <img id="detectionModalImage" src="images/monkeyA.png" alt="Detection">
+            <div class="detection-info">
+                <p><strong>Time:</strong> <span id="detectionModalTime"></span></p>
+                <p><strong>Event:</strong> <span id="detectionModalEvent"></span></p>
+                <p><strong>Cage:</strong> <span id="detectionModalCage"></span></p>
+            </div>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="livemonitor.js"></script>
+</body>
+</html>

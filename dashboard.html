@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monkey SmartTrap - Dashboard</title>
+    <link rel="stylesheet" href="dashboard.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="images/logo.jpg" alt="Monkey SmartTrap Logo" class="logo-img">
+                </div>
+                <div class="title-section">
+                    <h1>Monkey SmartTrap</h1>
+                    <p>Intelligent Trap Detection System</p>
+                </div>
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn notification-btn" id="notificationBtn">
+                    🔔
+                    <span class="notification-badge">3</span>
+                </button>
+                <button class="icon-btn profile-btn" id="profileBtn">👤</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Notification Dropdown -->
+    <div class="notification-dropdown" id="notificationDropdown">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="mark-read">Mark all as read</button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon">🚨</div>
+                <div class="notification-content">
+                    <p><strong>Monkey detected in Cage A</strong></p>
+                    <span class="notification-time">2 minutes ago</span>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <div class="notification-icon">✅</div>
+                <div class="notification-content">
+                    <p><strong>Alert sent successfully</strong></p>
+                    <span class="notification-time">5 minutes ago</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">⚙️</div>
+                <div class="notification-content">
+                    <p><strong>System maintenance completed</strong></p>
+                    <span class="notification-time">1 hour ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Dropdown -->
+    <div class="profile-dropdown" id="profileDropdown">
+        <div class="profile-header">
+            <div class="profile-avatar">👤</div>
+            <div class="profile-info">
+                <h3>Admin User</h3>
+                <p>admin@smarttrap.com</p>
+            </div>
+        </div>
+        <div class="profile-menu">
+            <a href="#" class="profile-menu-item">👤 My Profile</a>
+            <a href="#" class="profile-menu-item">⚙️ Account Settings</a>
+            <a href="#" class="profile-menu-item">🔔 Notification Preferences</a>
+            <a href="#" class="profile-menu-item">❓ Help & Support</a>
+            <a href="signin.html" class="profile-menu-item logout">🚪 Log Out</a>
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-item active">Dashboard</a>
+            <a href="livemonitor.html" class="nav-item">Live monitor</a>
+            <a href="detectionlog.html" class="nav-item">Detection Logs</a>
+            <a href="settings.html" class="nav-item">Settings</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <!-- Status Bar -->
+        <div class="status-bar">
+            <div class="status-item">
+                <span>Total Active Traps :</span>
+                <span class="status-value active">6</span>
+            </div>
+            <div class="status-item">
+                <span>Todays Total Monkeys :</span>
+                <span class="status-value monkeys">13</span>
+            </div>
+            <div class="status-item">
+                <span>System Status :</span>
+                <span class="status-value online">Online</span>
+            </div>
+        </div>
+
+        <!-- Cages Grid -->
+        <div class="cages-grid" id="cagesGrid">        </div>
+    </main>
+
+    <script src="auth.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

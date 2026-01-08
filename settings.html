@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - Monkey SmartTrap</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-section">
+                <div class="logo">
+                    <img src="images/logo.jpg" alt="Monkey SmartTrap Logo" class="logo-img">
+                </div>
+                <div class="title-section">
+                    <h1>Monkey SmartTrap</h1>
+                    <p>Intelligent Trap Detection System</p>
+                </div>
+            </div>
+            <div class="header-icons">
+                <button class="icon-btn notification-btn" id="notificationBtn">
+                    🔔
+                    <span class="notification-badge">3</span>
+                </button>
+                <button class="icon-btn profile-btn" id="profileBtn">👤</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Notification Dropdown -->
+    <div class="notification-dropdown" id="notificationDropdown">
+        <div class="notification-header">
+            <h3>Notifications</h3>
+            <button class="mark-read">Mark all as read</button>
+        </div>
+        <div class="notification-list">
+            <div class="notification-item unread">
+                <div class="notification-icon">🚨</div>
+                <div class="notification-content">
+                    <p><strong>Monkey detected in Cage A</strong></p>
+                    <span class="notification-time">2 minutes ago</span>
+                </div>
+            </div>
+            <div class="notification-item unread">
+                <div class="notification-icon">✅</div>
+                <div class="notification-content">
+                    <p><strong>Alert sent successfully</strong></p>
+                    <span class="notification-time">5 minutes ago</span>
+                </div>
+            </div>
+            <div class="notification-item">
+                <div class="notification-icon">⚙️</div>
+                <div class="notification-content">
+                    <p><strong>System maintenance completed</strong></p>
+                    <span class="notification-time">1 hour ago</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Dropdown -->
+    <div class="profile-dropdown" id="profileDropdown">
+        <div class="profile-header">
+            <div class="profile-avatar">👤</div>
+            <div class="profile-info">
+                <h3>Admin User</h3>
+                <p>admin@smarttrap.com</p>
+            </div>
+        </div>
+        <div class="profile-menu">
+            <a href="#" class="profile-menu-item">👤 My Profile</a>
+            <a href="#" class="profile-menu-item">⚙️ Account Settings</a>
+            <a href="#" class="profile-menu-item">🔔 Notification Preferences</a>
+            <a href="#" class="profile-menu-item">❓ Help & Support</a>
+            <a href="#" class="profile-menu-item logout">🚪 Log Out</a>
+        </div>
+    </div>
+
+    <!-- Sidebar Toggle Button -->
+    <button class="sidebar-toggle" id="sidebarToggle">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+        <nav class="nav-menu">
+            <a href="dashboard.html" class="nav-item">Dashboard</a>
+            <a href="livemonitor.html" class="nav-item">Live monitor</a>
+            <a href="detectionlog.html" class="nav-item">Detection Logs</a>
+            <a href="settings.html" class="nav-item active">Settings</a>
+        </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content" id="mainContent">
+        <h1 class="page-title">Admin Settings Panel</h1>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <button class="tab-btn" data-tab="users">User Management</button>
+            <button class="tab-btn active" data-tab="ai">AI & Camera Configuration</button>
+        </div>
+
+        <!-- User Management Tab -->
+        <div class="tab-content" id="usersTab">
+            <button class="add-user-btn" id="addUserBtn">
+                <span class="plus-icon">+</span> Add New User
+            </button>
+
+            <div class="users-table-container">
+                <table class="users-table">
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Last Active</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="usersTableBody">
+                        <tr>
+                            <td>Ali_Admin</td>
+                            <td>Admin</td>
+                            <td>Just now</td>
+                            <td class="actions-cell">
+                                <button class="action-btn edit-btn">✏️</button>
+                                <button class="action-btn delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Sarah_Officer</td>
+                            <td>Officer</td>
+                            <td>Just now</td>
+                            <td class="actions-cell">
+                                <button class="action-btn edit-btn">✏️</button>
+                                <button class="action-btn delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Abu_Officer</td>
+                            <td>Officer</td>
+                            <td>2 days ago</td>
+                            <td class="actions-cell">
+                                <button class="action-btn edit-btn">✏️</button>
+                                <button class="action-btn delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Alia_Admin</td>
+                            <td>Admin</td>
+                            <td>3 days ago</td>
+                            <td class="actions-cell">
+                                <button class="action-btn edit-btn">✏️</button>
+                                <button class="action-btn delete-btn">🗑️</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- AI & Camera Configuration Tab -->
+        <div class="tab-content active" id="aiTab">
+            <div class="settings-panel">
+                <div class="setting-group">
+                    <label for="sensitivitySlider" class="setting-label">
+                        Detection Sensitivity (YOLO Threshold)
+                    </label>
+                    <div class="slider-container">
+                        <input type="range" id="sensitivitySlider" class="slider" min="0" max="100" value="80">
+                        <span class="slider-value" id="sensitivityValue">0.8</span>
+                    </div>
+                </div>
+
+                <div class="setting-group">
+                    <label for="refreshRate" class="setting-label">
+                        Camera Refresh Rate
+                    </label>
+                    <select id="refreshRate" class="setting-select">
+                        <option value="continuous">Continuos Stream</option>
+                        <option value="1">1 second</option>
+                        <option value="5">5 seconds</option>
+                        <option value="10">10 seconds</option>
+                        <option value="30">30 seconds</option>
+                    </select>
+                </div>
+
+                <button class="save-btn" id="saveSettingsBtn">Save Configuration</button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Add User Modal -->
+    <div class="modal" id="addUserModal">
+        <div class="modal-content">
+            <h2>Add New User</h2>
+            <form id="addUserForm">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="newUsername" placeholder="Enter username" required>
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="newPassword" placeholder="Enter password" required>
+                </div>
+                <div class="form-group">
+                    <label>Role</label>
+                    <select id="newRole">
+                        <option value="Admin">Admin</option>
+                        <option value="Officer">Officer</option>
+                    </select>
+                </div>
+                <div class="modal-actions">
+                    <button type="button" class="modal-btn cancel-btn" id="cancelAddUser">Cancel</button>
+                    <button type="submit" class="modal-btn submit-btn">Add User</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="settings.js"></script>
+</body>
+</html>
